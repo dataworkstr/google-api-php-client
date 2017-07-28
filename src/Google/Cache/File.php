@@ -187,7 +187,7 @@ class Google_Cache_File extends Google_Cache_Abstract
       return false;
     }
     if ($type == LOCK_EX) {
-      chmod($storageFile, 0600);
+      @chmod($storageFile, 0600);
     }
     $count = 0;
     while (!flock($this->fh, $type | LOCK_NB)) {
